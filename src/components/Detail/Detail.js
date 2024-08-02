@@ -7,8 +7,11 @@ import Right from "./Right"
 import styles from './Detail.module.scss'
 import BookForm from "./BookForm"
 import emailjs from '@emailjs/browser';
+import { Alert, AlertTitle } from "@mui/material"
 
 const CarDetail = () => {
+    const [success, setSuccess] = useState(false)
+    const [progress, setProgress] = useState(false)
     const [price, setPrice] = useState({
         pickup: '',
         dropoff: '',
@@ -41,12 +44,14 @@ const CarDetail = () => {
             ...price,
             total: item.Price
         })
+        console.log(1)
     }, [item])
 
     const form = useRef();
 
     const sendBook = (e) => {
       e.preventDefault();
+      setProgress(true)
 
       emailjs
         .send('service_ijcrtjv', 'template_g14c74m', inputValue, {
@@ -55,6 +60,12 @@ const CarDetail = () => {
         .then(
             () => {
                 console.log('SUCCESS!');
+                setProgress(false)
+                setSuccess(true)
+                setActiveBookForm(false)
+                setTimeout(() => {
+                    setSuccess(false)
+                }, 2200);
             },
             (error) => {
                 console.log('FAILED...', error.text, error);
@@ -75,7 +86,8 @@ const CarDetail = () => {
                             setInputValue={setInputValue} 
                             form={form}
                             price={price}
-                            setPrice={setPrice}/>
+                            setPrice={setPrice}
+                            setActiveBookForm={setActiveBookForm} />
                     )
                 }
                 <Right 
@@ -86,8 +98,16 @@ const CarDetail = () => {
                     activeBookForm={activeBookForm} 
                     sendBook={sendBook}
                     price={price}
-                    setPrice={setPrice}/>
+                    setPrice={setPrice}
+                    progress={progress}/>
             </div>
+            {success && (
+                <Alert severity="success" className={styles.success}>
+                    <AlertTitle>
+                        success
+                    </AlertTitle>
+                </Alert>
+            )}
         </Container>
     )
 }

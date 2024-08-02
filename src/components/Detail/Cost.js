@@ -5,7 +5,7 @@ import FormSectionTitle from './FormSectionTitle'
 import UiBtn from '../Ui/UiBtn'
 import { useTranslation } from 'react-i18next'
 
-const Cost = ({item, price, setPrice, inputValue, setInputValue, activeBookForm, setActiveBookForm, sendBook}) => {
+const Cost = ({item, price, setPrice, inputValue, setInputValue, activeBookForm, setActiveBookForm, sendBook, progress}) => {
     const {t} = useTranslation()
     function handleClick(){
         setActiveBookForm(true)
@@ -15,52 +15,20 @@ const Cost = ({item, price, setPrice, inputValue, setInputValue, activeBookForm,
         <div className={styles.cost}>
             <FormSectionTitle title={'COST'}/>
             <h3 className={styles.price}>Rent for 1 day {item.Price}$</h3>
-            {isBrowser && (
-                <div className={styles.section}>
+            <div className={styles.footer}>
+                <div>
                     <UiNumber 
                         inputValue={inputValue}
                         setInputValue={setInputValue}
                         valueName={'dayCount'}
-                        title={'დღეების რაოდენობა'}/>
+                        title={isBrowser && 'დღეების რაოდენობა'}/>
+                    {isBrowser && <FormSectionTitle title={`Total ${price.total*inputValue.dayCount}$`}/>}
                 </div>
-            )}
-            {
-                price.pickup && (
-                    <>
-                    <h2>Delivery</h2>
-                    <h3>At pick-up{price.pickup}$</h3>
-                    </>
-                )
-            }
-            {
-                price.dropoff && (
-                    <>
-                    <h3>At drop-off{price.dropoff}$</h3>
-                    </>
-                )
-            }
-            {isBrowser && (
-                <>
-                <FormSectionTitle title={`Total ${price.total*inputValue.dayCount}$`}/>
-                    <UiBtn 
-                        text={t('ui.btnText')}
-                        onClick={activeBookForm ? sendBook : handleClick }
-                        />
-                </>
-            )}
-            {isMobile && (
-                <div className={styles.footer}>
-                    <UiNumber 
-                        inputValue={inputValue}
-                        setInputValue={setInputValue}
-                        valueName={'dayCount'}/>
-                    <UiBtn 
-                        text={t('ui.btnText')}
-                        onClick={activeBookForm ? sendBook : handleClick }
-                        />
-                </div>
-
-            )}
+                <UiBtn 
+                    text={isBrowser ? t('ui.btnText') : `Total ${price.total*inputValue.dayCount}$`}
+                    onClick={activeBookForm ? sendBook : handleClick }
+                    progress={progress}/>
+            </div>
         </div>
     )
 }

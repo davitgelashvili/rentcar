@@ -3,10 +3,14 @@ import GallerySlider from "../GallerySlider/GallerySlider"
 import ItemCopver from "../ItemCover/ItemCover"
 import styles from './Detail.module.scss'
 import DetailList from "./DetailList"
+import ArrowBackIos from "@mui/icons-material/ArrowBackIos"
+import { Link, useNavigate } from "react-router-dom"
 
 const Left = ({item}) => {
+    const history = useNavigate()
     return (
         <div className={styles.left}>
+            <Link to={'/'}><ArrowBackIos /><span>go home</span></Link>
             <h1>{item.make} {item.model} <span>({item.year})</span></h1>
             {isMobile && <ItemCopver item={item}/>}
             <DetailList item={item}/>

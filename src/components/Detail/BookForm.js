@@ -4,8 +4,9 @@ import styles from './Detail.module.scss'
 import FormSectionTitle from './FormSectionTitle'
 import UiSelect from '../Ui/UiSelect'
 import UiDate from '../Ui/UiDate'
+import ArrowBackIos from '@mui/icons-material/ArrowBackIos'
 
-const BookForm = ({item, inputValue, setInputValue, form, price, setPrice}) => {
+const BookForm = ({item, inputValue, setInputValue, form, price, setPrice, setActiveBookForm}) => {
     const rentLocation = [
         {
             id: 54363463,
@@ -44,7 +45,8 @@ const BookForm = ({item, inputValue, setInputValue, form, price, setPrice}) => {
 
     return (
         <div className={styles.left}>   
-            <form ref={form}>
+            <button onClick={() => setActiveBookForm(false)}><ArrowBackIos /><span>go back</span></button>
+            <form className={styles.form} ref={form}>
                 <section className={styles.section}>
                     <FormSectionTitle title={'Pick-up'}/>
                     <UiDate 

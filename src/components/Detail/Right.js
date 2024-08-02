@@ -3,7 +3,7 @@ import Cost from './Cost'
 import ItemCopver from '../ItemCover/ItemCover'
 import { isBrowser } from 'react-device-detect'
 
-const Right = ({item, activeBookForm, setActiveBookForm, sendBook, price, setPrice, inputValue, setInputValue,}) => {
+const Right = ({item, activeBookForm, setActiveBookForm, sendBook, price, setPrice, inputValue, setInputValue, progress}) => {
 
     return (
         <div className={styles.right}>
@@ -16,7 +16,8 @@ const Right = ({item, activeBookForm, setActiveBookForm, sendBook, price, setPri
                 setInputValue={setInputValue} 
                 activeBookForm={activeBookForm}
                 setActiveBookForm={setActiveBookForm}
-                sendBook={sendBook}/>
+                sendBook={sendBook}
+                progress={progress}/>
         </div>
     )
 }
