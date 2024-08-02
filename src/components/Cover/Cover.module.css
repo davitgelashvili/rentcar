@@ -1,0 +1,11 @@
+.cover {
+    padding: 20px 0;
+    background-image: url('/public/img/cover1.png');
+    background-size: cover;
+    box-shadow: inset 100px 100px 100px 100px rgba(30,42,53,0.5);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}

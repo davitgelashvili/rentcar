@@ -1,0 +1,27 @@
+.filter {
+    display: block;
+}
+
+.menu {
+    padding: 16px 0;
+    border-bottom: 1px solid #f1f1f2;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+.item {
+    list-style: none;
+    padding-left: 12px;
+    padding-right: 12px;
+    display: flex;
+}
+
+.link {
+    border-radius: 100px;
+    display: block;
+    padding: 9px 16px;
+    text-decoration: none;
+    background-color: #f1f1f2;
+    color: #333e50;
+    font-size: 18px;
+    font-weight: 700;
+}

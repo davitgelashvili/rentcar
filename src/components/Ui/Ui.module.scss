@@ -1,0 +1,102 @@
+label {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.btn {
+    width: 100%;
+    display: block;
+    height: 56px;
+    padding: 0 32px;
+    background-color: #1dbd90;
+    border-radius: 9px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 24px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    
+    @media (max-width: 768px) {
+        width: auto;
+        height: 45px;
+        margin-left: 20px;
+    }
+}
+
+.input {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    width: 100%;
+    box-sizing: border-box !important;
+    padding: 20px 15px 20px 15px;
+    background: #f9f9fa;
+    border: 1px solid #cbcfd3;
+    border-radius: 3px !important;
+    color: #333e50;
+    outline: none;
+}
+
+.title {
+    margin-bottom: 12px;
+}
+
+.datepick {
+    width: 100%;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    box-sizing: border-box !important;
+    background: #f9f9fa;
+    border: 1px solid transparent;
+    border-radius: 3px !important;
+    color: #333e50;
+    outline: none;
+}
+
+.datepick:hover {
+    border: 1px solid transparent;
+}
+
+.number {
+    max-width: 100px;
+    width: 100%;
+    padding: 20px 0 20px 0;
+    background: #f9f9fa;
+    border: 1px solid #cbcfd3;
+    border-radius: 3px !important;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        padding: 10px 0
+    }
+}
+
+.number_btn {
+    padding: 0 15px;
+
+    @media (max-width: 768px) {
+        padding: 0 10;
+    }
+
+    outline: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.number_input {
+    width: 100%;
+    background-color: transparent;
+    color: #333e50;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 24px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
