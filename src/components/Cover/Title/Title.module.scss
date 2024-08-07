@@ -6,4 +6,8 @@
 .text {
     color: #fff;
     font-size: 48px;
+
+    @media (max-width: 768px) {
+        font-size: 32px;
+    }
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import styles from './Title.module.css'
+import styles from './Title.module.scss'
 
 const Title = () => {
     const {t} = useTranslation()

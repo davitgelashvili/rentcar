@@ -45,7 +45,7 @@ const BookForm = ({item, inputValue, setInputValue, form, price, setPrice, setAc
 
     return (
         <div className={styles.left}>   
-            <button onClick={() => setActiveBookForm(false)}><ArrowBackIos /><span>go back</span></button>
+            <button onClick={() => setActiveBookForm(false)} className={styles.back_btn}><ArrowBackIos /><span>go back</span></button>
             <form className={styles.form} ref={form}>
                 <section className={styles.section}>
                     <FormSectionTitle title={'Pick-up'}/>
